@@ -4,7 +4,10 @@ import noteRoutes from './routes/note.routes.js';
 import authRoutes from './routes/auth.routes.js';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://frontend-bay-nine-34.vercel.app'],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
